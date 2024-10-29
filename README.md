@@ -2,7 +2,7 @@
 fine tune llama3.2
 
 <div align="center">
-  <img src="assets/appoarch.png" width="400">
+  <img src="assets/appoarch.png" width="500">
 </div>
 
 # references
