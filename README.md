@@ -1,5 +1,5 @@
 # ft2
-fine tune llama3.2
+fine tune llama 3.2
 
 <div align="center">
   <img src="assets/appoarch.png" width="500">
