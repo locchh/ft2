@@ -1,6 +1,10 @@
 # ft2
 fine tune llama3.2
 
+<div align="center">
+  <img src="assets/appoarch.png" width="400">
+</div>
+
 # references
 
 https://github.com/AlexandrosChrtn/llama-fine-tune-guide/tree/main
