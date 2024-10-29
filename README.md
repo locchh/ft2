@@ -5,4 +5,4 @@ fine tune llama3.2
 
 https://github.com/AlexandrosChrtn/llama-fine-tune-guide/tree/main
 
-https://github.com/D-Yuva/Llama_3.2_fine_tuning/tree/main
+https://www.deeplearning.ai/short-courses/prompt-engineering-with-llama-2/
