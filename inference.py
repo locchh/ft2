@@ -1,6 +1,7 @@
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
+import sys
 import torch
 # Check if a GPU is available
 if torch.cuda.is_available():
@@ -16,7 +17,7 @@ else:
 
 from transformers import pipeline
 
-model_id = "fine-tuned-model"
+model_id = sys.argv[1] #"fine-tuned-model"
 pipe = pipeline(
     "text-generation",
     model=model_id,

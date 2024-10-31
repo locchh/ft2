@@ -1,0 +1,7 @@
+2024-11-01 06:06:42,029 - INFO - Current GPU: Tesla P40
+2024-11-01 06:06:43,424 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2024-11-01 06:06:46,844 - INFO - Starting training...
+2024-11-01 06:07:28,028 - INFO - Evaluation loss: 1.3482823371887207
+2024-11-01 06:08:08,789 - INFO - Evaluation loss: 1.306647539138794
+2024-11-01 06:08:49,609 - INFO - Evaluation loss: 1.2915863990783691
+2024-11-01 06:09:30,854 - INFO - Model and tokenizer saved to logs

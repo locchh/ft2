@@ -2,12 +2,23 @@ import os
 import torch
 import logging
 import argparse
-from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, TrainerCallback
 from datasets import load_dataset
 
 # Set up logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+def setup_logging(output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    log_file = os.path.join(output_dir, "training.log")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        handlers=[
+            logging.FileHandler(log_file),
+            logging.StreamHandler()
+        ]
+    )
+    logger = logging.getLogger(__name__)
+    return logger
 
 # Parse command-line arguments
 def parse_args():
@@ -21,8 +32,15 @@ def parse_args():
     parser.add_argument("--max_length", type=int, default=128, help="Maximum sequence length for tokenization.")
     return parser.parse_args()
 
+# Callback for logging evaluation loss
+class LogEvalLossCallback(TrainerCallback):
+    def on_evaluate(self, args, state, control, metrics, **kwargs):
+        logger.info(f"Evaluation loss: {metrics['eval_loss']}")
+
 def main():
     args = parse_args()
+    global logger
+    logger = setup_logging(args.output_dir)
     
     # Set up GPU if available
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -78,7 +96,8 @@ def main():
         report_to="none",
         log_level="info",
         learning_rate=args.learning_rate,
-        max_grad_norm=2
+        max_grad_norm=2,
+        logging_dir=args.output_dir  # TensorBoard logs are also saved here if desired
     )
 
     # Initialize Trainer
@@ -87,10 +106,12 @@ def main():
         args=training_args,
         train_dataset=tokenized_dataset["train"],
         eval_dataset=tokenized_dataset["test"],
-        tokenizer=tokenizer
+        tokenizer=tokenizer,
+        callbacks=[LogEvalLossCallback()]  # Register the callback
     )
 
     # Train the model
+    logger.info("Starting training...")
     trainer.train()
     
     # Save the model and tokenizer
