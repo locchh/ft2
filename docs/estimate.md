@@ -34,7 +34,7 @@ Training typically requires additional memory for gradients and optimizer states
 
 #### a) **Full Training (requires activations, gradients, optimizer states)**
 
-- Model parameters: \( x \times 10^9 \)
+- Model parameters: $\ x \times 10^9 \$
 
 - Optimizer states and gradients typically require 2-3 copies of the model parameters.
 
