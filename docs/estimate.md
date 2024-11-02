@@ -50,6 +50,9 @@ $\text{Memory}_{\text{Full Training (f16)}} = 2x \times 3 = 6x \; \text{GB (f16)
 
 Additional memory is needed to store a copy of the model for evaluation (in `f16` or `int8`):
 
+$\text{Memory}_{\text{Full Training + Eval}}$
+
+
 $\text{Memory}_{\text{Full Training + Eval}} = \text{Memory}_{\text{Full Training}} + \text{Memory}_{\text{f16 or int8}}$
 
 For example, with `f16` evaluation:
