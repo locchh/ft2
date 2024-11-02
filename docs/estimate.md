@@ -9,9 +9,7 @@ Assuming \( x \) is the number of parameters in billions, we can convert it to b
 #### a) **When inference at `f32` (32-bit floating point)**
 
 Each parameter uses 4 bytes in `f32`:
-$$
-\text{Memory}_{\text{f32}} = x \times 10^9 \times 4 \; \text{bytes} = 4x \; \text{GB}
-$$
+$\text{Memory}_{\text{f32}} = x \times 10^9 \times 4 \; \text{bytes} = 4x \; \text{GB}$
 
 #### b) **When inference at `f16` (16-bit floating point)**
 
