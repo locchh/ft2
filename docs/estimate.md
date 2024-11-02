@@ -122,9 +122,9 @@ To estimate the training time for a large language model (LLM) with \( x \) bill
 
 The formula to estimate total training time (\( T_{\text{train}} \)) can be expressed as:
 
-$
+\$
 T_{\text{train}} = \frac{\text{Total Tokens} \times \text{FLOPs per Token}}{\text{Hardware Throughput} \times \text{GPU Count} \times \text{Utilization Rate}}
-$
+$\
 
 ### Breakdown of Each Term
 
