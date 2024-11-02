@@ -7,9 +7,9 @@ Evaluating large language models (LLMs) involves several metrics depending on th
 **Usage:** Measures whether the model’s output exactly matches the reference text, useful for tasks like question-answering.
 
 **Formula:** 
-$
+$$
 \text{EM} = \frac{\text{Number of Exact Matches}}{\text{Total Number of Examples}}
-$
+$$
 
 **Example:**  
 - Reference answer: "Paris is the capital of France."
@@ -23,16 +23,16 @@ $
 **Usage:** Measures the overlap of words between the predicted and reference answers. Effective for QA, summarization, and retrieval tasks where partial matches are meaningful.
 
 **Formula:**  
-$
+$$
 \text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-$
+$$
 where  
-$
+$$
 \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-$  
-$
+$$  
+$$
 \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-$
+$$
 
 **Example:**  
 - Reference answer: "Paris is the capital of France."
@@ -46,9 +46,9 @@ $
 **Usage:** Common for translation and generation, measures n-gram overlap between generated and reference texts.
 
 **Formula:**  
-$
+$$
 \text{BLEU} = \text{BP} \cdot \exp\left(\sum_{n=1}^{N} w_n \log p_n\right)
-$  
+$$  
 where \(p_n\) is the precision for n-grams, \(w_n\) is the weight for each n-gram, and BP is the brevity penalty to penalize short sentences.
 
 **Example:**  
@@ -79,9 +79,9 @@ where \(p_n\) is the precision for n-grams, \(w_n\) is the weight for each n-gra
 **Usage:** Designed for machine translation, but also used for text generation. Focuses on synonyms, stemming, and word order.
 
 **Formula:**  
-$
+$$
 \text{METEOR} = F \cdot (1 - \text{Penalty})
-$  
+$$  
 where \(F\) is a combination of precision and recall, and Penalty is based on the fragmentation of matched words.
 
 **Example:**  
@@ -110,9 +110,9 @@ Compute cosine similarity of token embeddings between the reference and generate
 **Usage:** Measures the uncertainty of a language model in generating text, commonly used in language modeling tasks.
 
 **Formula:**  
-$
+$$
 \text{Perplexity} = 2^{-\frac{1}{N} \sum_{i=1}^{N} \log_2 p(x_i)}
-$  
+$$  
 where \(p(x_i)\) is the probability of each word in the sequence.
 
 **Example:**  
@@ -125,9 +125,9 @@ If the model predicts high probabilities for the next word, perplexity is low, i
 **Usage:** Measures the probability of finding a correct solution within the top \(k\) responses, useful for code generation tasks.
 
 **Formula:**  
-$
+$$
 \text{Pass@k} = 1 - \prod_{i=1}^{N} \left(1 - p_i\right)
-$  
+$$  
 where \(p_i\) is the probability of the \(i\)-th response being correct among \(k\) generated samples.
 
 **Example:**  
