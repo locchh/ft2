@@ -3,7 +3,10 @@
 
 This document provides a visual explanation of a common Large Language Model (LLM) training workflow, focusing on the iterative improvement approach. The workflow is depicted in the provided image and can be broken down into two main branches: the baseline approach (left) and the iterative improvement approach (right).
 
-<img src="https://github.com/locchh/ft2/blob/main/assets/appoarch.png" alt="Image description" align="center" width="500">
+
+<div align="center">
+  <img src="https://github.com/locchh/ft2/blob/main/assets/appoarch.png" alt="Image description" width="500">
+</div>
 
 **Baseline Approach**
 
