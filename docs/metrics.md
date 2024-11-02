@@ -1,4 +1,4 @@
-# metrics
+# Metrics
 
 Evaluating large language models (LLMs) involves several metrics depending on the task—such as text generation, summarization, classification, or question-answering. Here are key metrics, their usage, formulas, and examples for each:
 
