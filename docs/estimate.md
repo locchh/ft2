@@ -38,15 +38,21 @@ Training typically requires additional memory for gradients and optimizer states
 - Optimizer states and gradients typically require 2-3 copies of the model parameters.
 
 Using a 3x multiplier:
+
 $\text{Memory}_{\text{Full Training (f32)}} = 4x \times 3 = 12x \; \text{GB (f32)}$
+
 For `f16`, the formula is:
+
 $\text{Memory}_{\text{Full Training (f16)}} = 2x \times 3 = 6x \; \text{GB (f16)}$
 
 #### b) **Full Training + Evaluation**
 
 Additional memory is needed to store a copy of the model for evaluation (in `f16` or `int8`):
+
 $\text{Memory}_{\text{Full Training + Eval}} = \text{Memory}_{\text{Full Training}} + \text{Memory}_{\text{f16 or int8}}$
+
 For example, with `f16` evaluation:
+
 $\text{Memory}_{\text{Full Training (f32) + Eval (f16)}} = 12x + 2x = 14x \; \text{GB}$
 
 #### c) **LoRA Training**
