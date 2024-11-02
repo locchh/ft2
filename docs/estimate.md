@@ -40,9 +40,7 @@ Training typically requires additional memory for gradients and optimizer states
 
 Using a 3x multiplier:
 
-$$
-\text{Memory}_{\text{Full Training (f32)}} = 4x \times 3 = 12x \; \text{GB (f32)}
-$$
+$\text{Memory}_{\text{Full Training (f32)}} = 4x \times 3 = 12x \; \text{GB (f32)}$
 
 For `f16`, the formula is:
 
