@@ -50,51 +50,49 @@ $\text{Memory}_{\text{Full Training (f16)}} = 2x \times 3 = 6x \; \text{GB (f16)
 
 Additional memory is needed to store a copy of the model for evaluation (in `f16` or `int8`):
 
-$$
-\text{Memory}_{\text{Full Training + Eval}} = \text{Memory}_{\text{Full Training}} + \text{Memory}_{\text{f16 or int8}}
-$$
+$\ text{Memory}_{\text{Full Training + Eval}} = \text{Memory}_{\text{Full Training}} + \text{Memory}_{\text{f16 or int8}} \$
 
 For example, with `f16` evaluation:
 
-$\text{Memory}_{\text{Full Training (f32) + Eval (f16)}} = 12x + 2x = 14x \; \text{GB}$
+$\ text{Memory}_{\text{Full Training (f32) + Eval (f16)}} = 12x + 2x = 14x \; \text{GB} \$
 
 #### c) **LoRA Training**
 
 LoRA requires storing a subset of parameters (low-rank matrices) alongside the original model. Suppose LoRA introduces an additional 0.1x (10% of model parameters):
 
-$\text{Memory}_{\text{LoRA}} = \text{Memory}_{\text{f32}} + 0.1x \; \text{GB}$
+$\ text{Memory}_{\text{LoRA}} = \text{Memory}_{\text{f32}} + 0.1x \; \text{GB} \$
 
 For training LoRA with `f16`:
 
-$\text{Memory}_{\text{LoRA (f16)}} = 2x + 0.1x = 2.1x \; \text{GB}$
+$\text{Memory}_{\text{LoRA (f16)}} = 2x + 0.1x = 2.1x \; \text{GB} \$
 
 #### d) **QLoRA Training**
 
 QLoRA uses quantized weights (like int4 or int8) plus LoRA matrices, allowing efficient training at reduced precision.
 
-$\text{Memory}_{\text{QLoRA}} = \text{Memory}_{\text{int4 or int8}} + 0.1x$
+$\ text{Memory}_{\text{QLoRA}} = \text{Memory}_{\text{int4 or int8}} + 0.1x \$
 
 For `int4`:
 
-$\text{Memory}_{\text{QLoRA (int4)}} = 0.5x + 0.1x = 0.6x \; \text{GB}$
+$\ text{Memory}_{\text{QLoRA (int4)}} = 0.5x + 0.1x = 0.6x \; \text{GB} \$
 
 #### e) **LoRA Training + Evaluation**
 
 For evaluation during LoRA training, add an `f16` or `int8` copy of the model:
 
-$\text{Memory}_{\text{LoRA + Eval}} = \text{Memory}_{\text{LoRA}} + \text{Memory}_{\text{f16 or int8}}$
+$\ text{Memory}_{\text{LoRA + Eval}} = \text{Memory}_{\text{LoRA}} + \text{Memory}_{\text{f16 or int8}} \$
 
 For `f16` evaluation:
 
-$\text{Memory}_{\text{LoRA (f16) + Eval (f16)}} = 2.1x + 2x = 4.1x \; \text{GB}$
+$\ text{Memory}_{\text{LoRA (f16) + Eval (f16)}} = 2.1x + 2x = 4.1x \; \text{GB} \$
 
 #### f) **QLoRA Training + Evaluation**
 
-$\text{Memory}_{\text{QLoRA + Eval}} = \text{Memory}_{\text{QLoRA}} + \text{Memory}_{\text{f16 or int8}}$
+$\ text{Memory}_{\text{QLoRA + Eval}} = \text{Memory}_{\text{QLoRA}} + \text{Memory}_{\text{f16 or int8}} \$
 
 For `int4` with `f16` evaluation:
 
-$\text{Memory}_{\text{QLoRA (int4) + Eval (f16)}} = 0.6x + 2x = 2.6x \; \text{GB}$
+$\ text{Memory}_{\text{QLoRA (int4) + Eval (f16)}} = 0.6x + 2x = 2.6x \; \text{GB} \$
 
 These calculations provide rough estimates for GPU memory requirements for a model of \( x \) billion parameters under different conditions.
 
